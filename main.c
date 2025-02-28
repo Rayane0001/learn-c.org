@@ -1,15 +1,27 @@
 #include <stdio.h>
 
+typedef struct {
+    char * name;
+    int age;
+} person;
+
+/* function declaration */
+void birthday(person * p);
+
+/* write your function here */
+void birthday(person *p)
+{
+    p->age++;
+}
+
 int main() {
-    int n = 10;
+    person john;
+    john.name = "John";
+    john.age = 27;
 
-    int * pointer_to_n = &n;
+    printf("%s is %d years old.\n", john.name, john.age);
+    birthday(&john);
+    printf("Happy birthday! %s is now %d years old.\n", john.name, john.age);
 
-    *pointer_to_n += 1;
-
-    if (pointer_to_n != &n) return 1;
-    if (*pointer_to_n != 11) return 1;
-
-    printf("Done!\n");
     return 0;
 }
